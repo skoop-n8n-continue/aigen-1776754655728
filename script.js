@@ -100,3 +100,25 @@ class Calculator {
 const previousOperandElement = document.getElementById('previous-operand');
 const currentOperandElement = document.getElementById('current-operand');
 const calculator = new Calculator(previousOperandElement, currentOperandElement);
+
+// Info Bar (Time/Date) Logic
+function updateInfoBar() {
+    const timeElement = document.getElementById('time');
+    const dateElement = document.getElementById('date');
+    const now = new Date();
+
+    timeElement.innerText = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+
+    dateElement.innerText = now.toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+    });
+}
+
+setInterval(updateInfoBar, 1000);
+updateInfoBar();
